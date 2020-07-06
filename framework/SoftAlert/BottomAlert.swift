@@ -73,7 +73,7 @@ public class BottomAlert {
     private static func calSize() -> [CGFloat] {
         let width = UIScreen.main.bounds.width
         let hasNotch = SoftAlertUtil.hasNotch()
-        if UIDevice.current.orientation.isLandscape {
+        if UIDevice.current.orientation.isLandscape || UIApplication.shared.statusBarFrame.height <= 0 {
             if hasNotch {
                 return [width, 40]
             } else {
@@ -83,14 +83,8 @@ public class BottomAlert {
             var height: CGFloat!
             if hasNotch {
                 height = UIApplication.shared.statusBarFrame.height * 1.3
-                if height <= 0 {
-                    height = 40
-                }
             } else {
                 height = UIApplication.shared.statusBarFrame.height * 1.8
-                if height <= 0 {
-                    height = 20
-                }
             }
             return [width, height]
         }

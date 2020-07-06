@@ -20,11 +20,11 @@ public class SoftToast {
             let nView = UIView()
             let nLable = UILabel()
             
-            nView.frame = CGRect(x: 0, y: 0, width: keyWindow.frame.width - 60  , height: 50)
+            nView.frame = CGRect(x: 0, y: 0, width: keyWindow.frame.width * 0.6  , height: 50)
             nView.center = CGPoint(x: keyWindow.bounds.width / 2, y: keyWindow.bounds.height - 100)
             nView.backgroundColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
             nView.clipsToBounds = true
-            nView.layer.cornerRadius = 10
+            nView.layer.cornerRadius = 25
             nView.alpha = 0
             
             nLable.frame = CGRect(x: 0, y: 0, width: nView.frame.width, height: 50)
@@ -38,12 +38,12 @@ public class SoftToast {
             
             keyWindow.addSubview(nView)
                     
-            UIView.animate(withDuration: 0.3, animations: {
-                nView.alpha = 1
+            UIView.animate(withDuration: 0.5, animations: {
+                nView.alpha = 0.9
             })
             { _ in
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration ){
-                    UIView.animate(withDuration: 0.3, animations: {
+                    UIView.animate(withDuration: 0.5, animations: {
                         nView.alpha = 0
                     }) { _ in
                         nLable.removeFromSuperview()

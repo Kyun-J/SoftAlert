@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func webPopupTouch(_ sender: UIButton) {
-        SoftWebPopup.globalPopup(string: "https://naver.com")
+        SoftWebPopup.popup(string: "https://naver.com")
     }
     
 }
