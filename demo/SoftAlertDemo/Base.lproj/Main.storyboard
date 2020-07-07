@@ -44,6 +44,13 @@
                                     <action selector="webPopupTouch:" destination="BYZ-38-t0r" eventType="touchDown" id="mcU-cx-VfG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDl-dZ-f5b">
+                                <rect key="frame" x="176.66666666666666" y="257" width="61" height="30"/>
+                                <state key="normal" title="Indicator"/>
+                                <connections>
+                                    <action selector="indicatorTouch:" destination="BYZ-38-t0r" eventType="touchDown" id="HsR-9c-5NS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -52,7 +59,9 @@
                             <constraint firstItem="ruG-gp-M1S" firstAttribute="top" secondItem="Fot-RG-RAr" secondAttribute="bottom" constant="26" id="Bck-50-9iX"/>
                             <constraint firstItem="ruG-gp-M1S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CLw-Yc-Bx6"/>
                             <constraint firstItem="1ld-0r-Gxb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HGl-cy-npY"/>
+                            <constraint firstItem="HDl-dZ-f5b" firstAttribute="top" secondItem="Dfr-rq-ecP" secondAttribute="bottom" constant="26" id="Oaw-TN-scB"/>
                             <constraint firstItem="Dfr-rq-ecP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="drF-Om-9Sp"/>
+                            <constraint firstItem="HDl-dZ-f5b" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="q6b-QN-brp"/>
                             <constraint firstItem="Fot-RG-RAr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vcV-Qw-t40"/>
                             <constraint firstItem="Dfr-rq-ecP" firstAttribute="top" secondItem="ruG-gp-M1S" secondAttribute="bottom" constant="26" id="wOi-mf-eqh"/>
                         </constraints>

@@ -18,17 +18,15 @@ public class TopAlert {
         return isShowing
     }
         
-    public static func show(text: String, _ type: SoftAlertType = .positive, _ duration: SoftAlertDuration = .tiny, _ onDismiss: @escaping () -> Void = {}) {
-        show(text: text, backgroundColor: SoftAlertUtil.genType(type), textColor: .white, duration: SoftAlertUtil.genDuration(duration), onDismiss: onDismiss)
+    public static func show(text: String, _ type: SoftType = .positive, _ duration: SoftDuration = .tiny, _ onDismiss: @escaping () -> Void = {}) {
+        show(text: text, backgroundColor: SoftUtil.genType(type), textColor: .white, duration: SoftUtil.genDuration(duration), onDismiss: onDismiss)
     }
     
     public static func show(text: String, backgroundColor: UIColor = UIColor(red: 109/255, green: 200/255, blue: 87/255, alpha: 1.0), textColor: UIColor = UIColor.white, duration: Double = 1.0, appearDuration: Double = 0.5, dismissDuration: Double = 0.5, onDismiss: @escaping () -> Void = {}) {
         DispatchQueue.main.async {
             if isShowing { return }
-            guard let keyWindow = SoftAlertUtil.getKeyWindow() else { return }
+            guard let keyWindow = SoftUtil.getKeyWindow() else { return }
             isShowing = true
-            
-            NotificationCenter.default.addObserver(self, selector: #selector(TopAlert.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
                     
             let size = calSize()
             let width = size[0]
@@ -47,6 +45,8 @@ public class TopAlert {
             nView.addSubview(nLabel)
             sView = nView
             sLabel = nLabel
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(TopAlert.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
             
             keyWindow.addSubview(nView)
             UIView.animate(withDuration: appearDuration, animations: {
@@ -76,7 +76,7 @@ public class TopAlert {
             return [width, 20]
         } else {
             var height: CGFloat!
-            if SoftAlertUtil.hasNotch() {
+            if SoftUtil.hasNotch() {
                 height = UIApplication.shared.statusBarFrame.height * 1.3
             } else {
                 height = UIApplication.shared.statusBarFrame.height * 1.8

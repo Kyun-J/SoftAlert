@@ -10,13 +10,13 @@ import UIKit
 
 public class SoftToast {
     
-    public static func show(text: String, _ duration: SoftAlertDuration = .tiny, _ onDismiss: () -> Void = {}) {
-        show(text: text, duration: SoftAlertUtil.genDuration(duration), onDismiss: onDismiss)
+    public static func show(text: String, _ duration: SoftDuration = .tiny, _ onDismiss: () -> Void = {}) {
+        show(text: text, duration: SoftUtil.genDuration(duration), onDismiss: onDismiss)
     }
     
     public static func show(text: String, duration: Double, onDismiss: () -> Void = {}) {
         DispatchQueue.main.async {
-            guard let keyWindow = SoftAlertUtil.getKeyWindow() else { return }
+            guard let keyWindow = SoftUtil.getKeyWindow() else { return }
             let nView = UIView()
             let nLable = UILabel()
             

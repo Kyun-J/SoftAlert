@@ -8,6 +8,7 @@
 
 import UIKit
 import SoftAlert
+import WebKit
 
 class ViewController: UIViewController {
 
@@ -34,4 +35,14 @@ class ViewController: UIViewController {
         SoftWebPopup.popup(string: "https://naver.com")
     }
     
+    @IBAction func indicatorTouch(_ sender: UIButton) {
+        if #available(iOS 12.0, *) {
+            SoftLoad.show(text: "Indicator")
+        } else {
+            SoftLoad.showWithNoStyle()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            SoftLoad.stop()
+        }
+    }
 }

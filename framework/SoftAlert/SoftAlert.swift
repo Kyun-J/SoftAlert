@@ -8,18 +8,18 @@
 
 import UIKit
 
-public enum SoftAlertType {
+public enum SoftType {
     case positive
     case negative
 }
 
-public enum SoftAlertDuration {
+public enum SoftDuration {
     case tiny
     case short
     case long
 }
 
-struct SoftAlertStatic {
+struct SoftStatic {
     static let colorPositive = UIColor(red: 109/255, green: 200/255, blue: 87/255, alpha: 1.0)
     static let colorNegative = UIColor.red
     
@@ -28,7 +28,7 @@ struct SoftAlertStatic {
     static let long: Double = 3.5
 }
 
-struct SoftAlertUtil {
+struct SoftUtil {
     
     static func getKeyWindow() -> UIWindow? {
         return UIApplication.shared.windows.filter({$0.isKeyWindow}).first
@@ -42,23 +42,35 @@ struct SoftAlertUtil {
         }
     }
     
-    static func genType(_ type: SoftAlertType) -> UIColor {
+    static func genType(_ type: SoftType) -> UIColor {
         switch type {
         case .positive:
-            return SoftAlertStatic.colorPositive
+            return SoftStatic.colorPositive
         case .negative:
-            return SoftAlertStatic.colorNegative
+            return SoftStatic.colorNegative
         }
     }
     
-    static func genDuration(_ duration: SoftAlertDuration) -> Double {
+    static func genDuration(_ duration: SoftDuration) -> Double {
         switch duration {
         case .tiny:
-            return SoftAlertStatic.tiny
+            return SoftStatic.tiny
         case .short:
-            return SoftAlertStatic.short
+            return SoftStatic.short
         case .long:
-            return SoftAlertStatic.long
+            return SoftStatic.long
+        }
+    }
+    
+    static func isDarkMode(_ keyWindow: UIWindow) -> Bool {
+        if #available(iOS 12.0, *) {
+            if keyWindow.rootViewController?.traitCollection.userInterfaceStyle == .dark {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
         }
     }
     

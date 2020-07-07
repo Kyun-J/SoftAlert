@@ -18,14 +18,14 @@ public class BottomAlert {
         return isShowing
     }
         
-    public static func show(text: String, _ type: SoftAlertType = .positive, _ duration: SoftAlertDuration = .tiny, _ onDismiss: @escaping () -> Void = {}) {
-        show(text: text, backgroundColor: SoftAlertUtil.genType(type), textColor: .white, duration: SoftAlertUtil.genDuration(duration), onDismiss: onDismiss)
+    public static func show(text: String, _ type: SoftType = .positive, _ duration: SoftDuration = .tiny, _ onDismiss: @escaping () -> Void = {}) {
+        show(text: text, backgroundColor: SoftUtil.genType(type), textColor: .white, duration: SoftUtil.genDuration(duration), onDismiss: onDismiss)
     }
     
     public static func show(text: String, backgroundColor: UIColor = UIColor(red: 109/255, green: 200/255, blue: 87/255, alpha: 1.0), textColor: UIColor = UIColor.white, duration: Double = 1.0, appearDuration: Double = 0.5, dismissDuration: Double = 0.5, onDismiss: @escaping () -> Void = {}) {
         DispatchQueue.main.async {
             if isShowing { return }
-            guard let keyWindow = SoftAlertUtil.getKeyWindow() else { return }
+            guard let keyWindow = SoftUtil.getKeyWindow() else { return }
             isShowing = true
             
             NotificationCenter.default.addObserver(self, selector: #selector(BottomAlert.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
@@ -72,7 +72,7 @@ public class BottomAlert {
     
     private static func calSize() -> [CGFloat] {
         let width = UIScreen.main.bounds.width
-        let hasNotch = SoftAlertUtil.hasNotch()
+        let hasNotch = SoftUtil.hasNotch()
         if UIDevice.current.orientation.isLandscape || UIApplication.shared.statusBarFrame.height <= 0 {
             if hasNotch {
                 return [width, 40]
@@ -93,7 +93,7 @@ public class BottomAlert {
     @objc private static func rotated() {
         if !isShowing { return }
         guard let rView = sView, let rLable = sLabel else { return }
-        guard let keyWindow = SoftAlertUtil.getKeyWindow() else { return }
+        guard let keyWindow = SoftUtil.getKeyWindow() else { return }
         let size = calSize()
         let width = size[0]
         let height = size[1]
@@ -105,7 +105,6 @@ public class BottomAlert {
         rLable.frame.origin.y = height - rLable.frame.height - 1
         rLable.frame.origin.y = height * 0.1
     }
-
 
 }
 
