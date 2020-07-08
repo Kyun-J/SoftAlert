@@ -8,7 +8,6 @@
 
 import UIKit
 import SoftAlert
-import WebKit
 
 class ViewController: UIViewController {
 
@@ -39,9 +38,9 @@ class ViewController: UIViewController {
         if #available(iOS 12.0, *) {
             SoftLoad.show(text: "Indicator")
         } else {
-            SoftLoad.showWithNoStyle()
+            SoftLoad.showStyle(text: "Indicator")
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             SoftLoad.stop()
         }
     }

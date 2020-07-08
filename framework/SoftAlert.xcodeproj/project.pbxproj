@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DF3B739724B42712007ED844 /* SoftLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3B739624B42712007ED844 /* SoftLoad.swift */; };
+		DF3B739924B5673D007ED844 /* SoftPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3B739824B5673D007ED844 /* SoftPopup.swift */; };
 		DFADBE2324ADE6B1006FBF2A /* BottomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFADBE2224ADE6B1006FBF2A /* BottomAlert.swift */; };
 		DFADBE2824AE0A3C006FBF2A /* SoftToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFADBE2724AE0A3C006FBF2A /* SoftToast.swift */; };
 		DFADBE2D24AF2C81006FBF2A /* SoftWebPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFADBE2C24AF2C81006FBF2A /* SoftWebPopup.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		DF3B739624B42712007ED844 /* SoftLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftLoad.swift; sourceTree = "<group>"; };
+		DF3B739824B5673D007ED844 /* SoftPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftPopup.swift; sourceTree = "<group>"; };
 		DFADBE2224ADE6B1006FBF2A /* BottomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomAlert.swift; sourceTree = "<group>"; };
 		DFADBE2724AE0A3C006FBF2A /* SoftToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftToast.swift; sourceTree = "<group>"; };
 		DFADBE2C24AF2C81006FBF2A /* SoftWebPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftWebPopup.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				DFADBE2724AE0A3C006FBF2A /* SoftToast.swift */,
 				DFADBE2C24AF2C81006FBF2A /* SoftWebPopup.swift */,
 				DF3B739624B42712007ED844 /* SoftLoad.swift */,
+				DF3B739824B5673D007ED844 /* SoftPopup.swift */,
 			);
 			path = SoftAlert;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				DFADBE2824AE0A3C006FBF2A /* SoftToast.swift in Sources */,
 				DFADBE2324ADE6B1006FBF2A /* BottomAlert.swift in Sources */,
 				DFADBE2D24AF2C81006FBF2A /* SoftWebPopup.swift in Sources */,
+				DF3B739924B5673D007ED844 /* SoftPopup.swift in Sources */,
 				DFCD233C24A9C62800FF21A6 /* SoftAlert.swift in Sources */,
 				DF3B739724B42712007ED844 /* SoftLoad.swift in Sources */,
 			);

@@ -11,22 +11,23 @@ import UIKit
 public class SoftLoad {
     
     private static var isShowing = false
-    private static let viewForActivityIndicator = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 100, height: 100))
+    private static let viewForActivityIndicator = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 90, height: 90))
     private static let activityIndicatorView = UIActivityIndicatorView()
     private static let loadingTextLabel = UILabel()
     private static let background = UIView()
     
+    public static var defaultText = "Loading"
     public static var isShow: Bool {
         return isShowing
     }
     
     @available(iOS 12.0, *)
     public static func show(userStyle: UIUserInterfaceStyle? = nil) {
-        show(text: "Loading", userStyle)
+        show(text: defaultText, userStyle)
     }
     
     @available(iOS 12.0, *)
-    public static func show(text: String = "Loading", _ userStyle: UIUserInterfaceStyle? = nil) {
+    public static func show(text: String = defaultText, _ userStyle: UIUserInterfaceStyle? = nil) {
         DispatchQueue.main.async {
             if !work(text: text) { return }
             var style = userStyle
@@ -37,18 +38,19 @@ public class SoftLoad {
                 viewForActivityIndicator.backgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).withAlphaComponent(0.7)
             } else {
                 loadingTextLabel.textColor = UIColor.white
-                activityIndicatorView.color = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+                activityIndicatorView.color = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 viewForActivityIndicator.backgroundColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.5)
             }
         }
     }
     
-    public static func showWithNoStyle(text: String = "Loading") {
+    
+    public static func showStyle(text: String = defaultText, textColor: UIColor = UIColor.white, indicatorColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), backgroundColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.5)) {
         DispatchQueue.main.async {
             if !work(text: text) { return }
-            loadingTextLabel.textColor = UIColor.white
-            activityIndicatorView.color = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
-            viewForActivityIndicator.backgroundColor =  #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.5)
+            loadingTextLabel.textColor = textColor
+            activityIndicatorView.color = indicatorColor
+            viewForActivityIndicator.backgroundColor =  backgroundColor
         }
     }
     
@@ -59,7 +61,7 @@ public class SoftLoad {
         
         background.frame = keyWindow.frame
         viewForActivityIndicator.center = CGPoint(x: keyWindow.frame.size.width / 2.0, y: (keyWindow.frame.size.height) / 2.0)
-        viewForActivityIndicator.layer.cornerRadius = 15
+        viewForActivityIndicator.layer.cornerRadius = 10
         background.addSubview(viewForActivityIndicator)
     
         activityIndicatorView.center = CGPoint(x: viewForActivityIndicator.frame.size.width / 2.0, y: (viewForActivityIndicator.frame.size.height) / 2.0)
@@ -74,7 +76,7 @@ public class SoftLoad {
         activityIndicatorView.style = .whiteLarge
         viewForActivityIndicator.addSubview(activityIndicatorView)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(SoftLoad.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
         
         activityIndicatorView.startAnimating()
         keyWindow.addSubview(background)

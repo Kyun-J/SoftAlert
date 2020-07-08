@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class BottomAlert {
+open class BottomAlert {
     
     private static var isShowing = false
     private static var sView: UIView?

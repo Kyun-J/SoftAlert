@@ -112,7 +112,7 @@ open class SoftWebPopup {
         nWebView.frame.origin.x = nWindowView.frame.width / 2 - nWebView.frame.width / 2
         if UIDevice.current.orientation.isLandscape || UIApplication.shared.statusBarFrame.height <= 0 {
             nWebView.frame.origin.y = nWindowView.frame.height / 2.25 - nWebView.frame.height / 2
-            cancelBtn.center = CGPoint(x: nWindowView.frame.size.width / 2, y : nWindowView.frame.height / 2.25 + nWebView.frame.height / 2 + 27)
+            cancelBtn.center = CGPoint(x: nWindowView.frame.size.width / 2, y : nWindowView.frame.height / 2.25 + nWebView.frame.height / 2 + 24)
         } else {
             nWebView.frame.origin.y = nWindowView.frame.height / 2 - nWebView.frame.height / 2
             cancelBtn.center = CGPoint(x: nWindowView.frame.size.width / 2, y : nWindowView.frame.height / 2 + nWebView.frame.height / 2 + 27)
@@ -127,7 +127,7 @@ fileprivate class WKNavi: NSObject, WKNavigationDelegate {
         if #available(iOS 12.0, *) {
             SoftLoad.show(.light)
         } else {
-            SoftLoad.showWithNoStyle()
+            SoftLoad.showStyle()
         }
     }
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {

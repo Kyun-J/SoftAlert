@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class TopAlert {
+open class TopAlert {
     
     private static var isShowing = false
     private static var sView: UIView?
